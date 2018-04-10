@@ -1,0 +1,27 @@
+﻿<div class="col-md-6 col-md-offset-3">
+    <h2>Sign In</h2>
+    <form class="form-horizontal" [formGroup]="form">
+
+        <div class="form-group" [ngClass]="displayFieldCss('email')">
+            <div class="col-sm-12">
+                <label for="email" class="control-label required">Email</label>
+                <input type="text" id="email" class="form-control" formControlName="email">
+                <app-field-error-display [displayError]="isFieldValid('email')" errorMsg="Enter your valid email address">
+                </app-field-error-display>
+            </div>
+        </div>
+
+        <div class="form-group" [ngClass]="displayFieldCss('password')">
+            <div class="col-sm-12">
+                <label for="password" class="control-label required">Password</label>
+                <input type="password" id="password" class="form-control" formControlName="password">
+                <app-field-error-display [displayError]="isFieldValid('password')" errorMsg="Enter your password">
+                </app-field-error-display>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" (click)="login()">Sign In</button>
+        <a [routerLink]="['/register']" class="btn btn-link">Sign Up</a>
+
+    </form>
+</div>

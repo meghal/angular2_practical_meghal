@@ -1,0 +1,91 @@
+﻿<div class="col-md-10 col-md-offset-3">
+    <h2>Sign Up</h2>
+    <form class="form-horizontal" [formGroup]="form">
+
+        <div class="col-md-6 form-group" [ngClass]="displayFieldCss('fName')">
+            <div class="col-sm-12">
+                <label for="fname" class="control-label required">First Name</label>
+                <input type="text" id="fname" class="form-control" formControlName="fName">
+                <app-field-error-display [displayError]="isFieldValid('fName')" [errorMsg]="checkMaxLength('fName')? checkMaxLength('fName'): 'Enter First Name'">
+                </app-field-error-display>
+            </div>
+        </div>
+        <div class="col-md-6 form-group" [ngClass]="displayFieldCss('lName')">
+            <div class="col-sm-12">
+                <label for="lName" class="control-label required">Last Name</label>
+                <input type="text" id="lName" class="form-control" formControlName="lName">
+                <app-field-error-display [displayError]="isFieldValid('lName')" [errorMsg]="checkMaxLength('lName')? checkMaxLength('lName'): 'Enter Last Name'">
+                </app-field-error-display>
+            </div>
+        </div>
+        <div class="col-md-6 form-group" [ngClass]="displayFieldCss('uName')">
+            <div class="col-sm-12">
+                <label for="uName" class="control-label required">Username</label>
+                <input type="text" id="uName" class="form-control" formControlName="uName">
+                <app-field-error-display [displayError]="isFieldValid('uName')" [errorMsg]="checkMaxLength('uName')? checkMaxLength('uName'): 'Enter Username'">
+                </app-field-error-display>
+            </div>
+        </div>
+        <div class="col-md-6 form-group" [ngClass]="displayFieldCss('password')">
+            <div class="col-sm-12">
+                <label for="password" class="control-label required">Password</label>
+                <input type="password" id="password" class="form-control" formControlName="password">
+                <app-field-error-display [displayError]="isFieldValid('password')" [errorMsg]="checkMaxLength('password')? checkMaxLength('password'): 'Enter Password'">
+                </app-field-error-display>
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group" [ngClass]="displayFieldCss('dob')">
+            <div class="col-sm-12">
+                <label for="dob" class="control-label required">Date of Birth</label>
+                <input type="date" id="dob" class="form-control" formControlName="dob">
+                <app-field-error-display [displayError]="isFieldValid('dob')" [errorMsg]="checkDOB('dob')? checkDOB('dob'):'Enter Date of Birth'">
+                </app-field-error-display>
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group" [ngClass]="displayFieldCss('mobile')">
+            <div class="col-sm-12">
+                <label for="mobile" class="control-label required">Mobile</label>
+                <input type="number" id="mobile" class="form-control" formControlName="mobile">
+                <app-field-error-display [displayError]="isFieldValid('mobile')" errorMsg="Enter Mobile Number">
+                </app-field-error-display>
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group" [ngClass]="displayFieldCss('email')">
+            <div class="col-sm-12">
+                <label for="email" class="control-label required">Email</label>
+                <input type="text" id="email" class="form-control" formControlName="email">
+                <app-field-error-display [displayError]="isFieldValid('email')" errorMsg="Enter your valid email address">
+                </app-field-error-display>
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group" [ngClass]="displayFieldCss('address')">
+            <div class="col-sm-12">
+                <label for="address" class="control-label required">Address</label>
+                <input type="address" id="address" class="form-control" formControlName="address">
+                <app-field-error-display [displayError]="isFieldValid('address')" errorMsg="Enter your Address">
+                </app-field-error-display>
+            </div>
+        </div>
+
+        <div class="col-md-12 file-upload form-group">
+            <div class="col-md-12">
+                <label for="address" class="control-label">Upload</label>
+
+                <img-cropper #cropper [image]="data" [settings]="cropperSettings"></img-cropper>
+                <br>
+                <span class="result rounded" *ngIf="data.image">
+                    <img [src]="data.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight">
+                </span>
+            </div>
+        </div>
+
+
+        <button [disabled]="loading" (click)="register()" class="btn btn-primary">Sign Up</button>
+        <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+    </form>
+
+</div>

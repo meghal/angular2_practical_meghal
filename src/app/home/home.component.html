@@ -1,0 +1,35 @@
+﻿<app-header-template></app-header-template>
+
+<div class="col-md-12 col-md-offset-3">
+    <h1>Hi {{currentUser.firstName}}!</h1>
+    <p>You're logged in with Angular 2/5 and Angular CLI!!</p>
+    <h3>Overview</h3>
+    <ul>
+        <li>
+            Email: {{currentUser.email}}
+        </li>
+        <li>
+            First Name: {{currentUser.firstName}}
+        </li>
+        <li>
+            Last Name: {{currentUser.lastName}}
+        </li>
+        <li>
+            Date of Birth: {{currentUser.dob | date : 'MM/dd/yyyy'}}
+        </li>
+        <li>
+            Address: {{currentUser.address}}
+        </li>
+        <li>
+            Mobile: {{currentUser.mobile}}
+        </li>
+        <li>
+            Image:
+            <img [src]="currentUser.image" alt="No image available"/> </li>
+    </ul>
+    <p>
+        <a [routerLink]="['/login']">Logout</a>
+    </p>
+</div>
+
+<app-footer-template></app-footer-template>
