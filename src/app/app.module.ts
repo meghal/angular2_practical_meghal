@@ -17,7 +17,6 @@ import { HeaderTemplateComponent } from './components/header-template/header-tem
 import { FooterTemplateComponent } from './components/footer-template/footer-template.component';
 import {ImageCropperComponent, CropperSettings} from 'ng2-img-cropper';
 
-// used to create fake backend
 @NgModule({
     imports: [
         BrowserModule,
